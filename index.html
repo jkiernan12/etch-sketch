@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Ecth-a-Sketch</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="page-container">
+  <h1>Etch-n-Sketch</h1>
+  <div class="button-container">
+  <button id="reset">Reset Grid</button>
+  <input type="number" min="5" max="100" id="grid-input" value="16">
+  <button id="grid-button">Change Size</button>
+  </div>
+<div id="sketch-container" class="container">
+
+</div>
+</div>
+<script>
+  //generate a block grid; parameter is width of grid
+let selectedColor = "black";
+let normalColor ="white";
+let containerWidth = 400;
+
+function createBlock(quantity) {
+  let amount = quantity * quantity;
+  let allBlocks = document.querySelectorAll(".block");
+  allBlocks.forEach(block => block.remove());
+
+  for (let i = 0; i < amount; i++) {
+    let block = document.createElement("div");
+    let container = document.getElementById('sketch-container');
+    block.classList.add("block");
+    container.appendChild(block);
+    blockSize = "" + (containerWidth/quantity) + "px";
+    block.style.width = blockSize;
+    block.style.height = blockSize;
+  }
+  let blockName = document.querySelectorAll(".block")
+  blockName.forEach(block => block.addEventListener("mouseenter", function( event ) {
+  event.target.style.backgroundColor = selectedColor;
+}, false));
+}
+
+//reset listener and function
+let resetButton = document.querySelector("#reset");
+resetButton.addEventListener("click", resetGrid);
+
+function resetGrid() {
+  let resetBlocks = document.querySelectorAll(".block");
+  resetBlocks.forEach(element => element.style.backgroundColor = normalColor);
+}
+
+// grid size listener, button and input
+let gridInput = document.querySelector("#grid-input").value;
+let gridButton = document.querySelector("#grid-button");
+gridButton.addEventListener("click", gridSizer);
+function gridSizer() {
+  gridInput = document.querySelector("#grid-input").value;
+  createBlock(gridInput);
+}
+
+
+
+</script>
+</body>
+
+</html>
