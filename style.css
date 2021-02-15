@@ -44,7 +44,7 @@ footer p {
   min-height: 100vh;
 }
 .container {
-width: 640px;
+width: 30vw;
 display:flex;
 flex-wrap: wrap;
 flex-direction: row;
@@ -52,7 +52,7 @@ margin:20px;
 border: 10px solid var(--main-dark-color);
 }
 .content-container {
-  width:700px;
+  width:35vw;
   margin:20px auto;
   display:flex;
   flex-direction: column;

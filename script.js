@@ -18,7 +18,8 @@ function createBlock(quantity) {
     blockSize = "" + containerWidth / quantity + widthUnits;
     block.style.width = blockSize;
     block.style.height = blockSize;
-    block.addEventListener("mouseenter", colorBlock, false)//work
+    block.addEventListener("mouseenter", colorBlock, false);
+    block.addEventListener("touchstart", colorBlock, false);
   }
 }
 
