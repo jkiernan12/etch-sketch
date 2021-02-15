@@ -1,7 +1,9 @@
 var currentMode = "black"; //default coloring mode
 let normalColor = "white"; //default grid color on reset
-let containerWidth = 400; //size of grid in px
-let container = document.getElementById("sketch-container");
+let container = document.getElementById("sketch-container");//get size of container for responsive sizing
+    style = window.getComputedStyle(container),
+    containerWidth = style.getPropertyValue('width').replace(/[^-\d\.]/g, "");//get width numeric value
+    widthUnits = style.getPropertyValue('width').replace(/[^-\D\.]/g, "");//get width units
 //create grid of n x n blocks
 function createBlock(quantity) {
   let amount = quantity * quantity;
@@ -13,7 +15,7 @@ function createBlock(quantity) {
 
     block.classList.add("block");
     container.appendChild(block);
-    blockSize = "" + containerWidth / quantity + "px";
+    blockSize = "" + containerWidth / quantity + widthUnits;
     block.style.width = blockSize;
     block.style.height = blockSize;
     block.addEventListener("mouseenter", colorBlock, false)//work
