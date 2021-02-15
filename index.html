@@ -8,9 +8,9 @@
 </head>
 <body>
   <div class="page-container">
-  <h1>Etch-n-Sketch</h1>
+  <h1>Sketch-a-Pixel!</h1>
   <p>Click on the canvas below to start painting. Choose a paintbrush color of black, random rainbow or a custom color.
-    You can also change the pixel size and reset the canvas.</p>
+  </p>
   <div class="button-container">
   <button id="black-btn">Black</button>
   <button id="rainbow">Rainbow</button>
@@ -18,13 +18,18 @@
   </div>
 <div id="sketch-container" class="container">
 </div>
-  <div class="button-container">
-<button id="reset">Reset Grid</button>
+  <div class="button-container column">
+    <label class="gray">Make pixels smaller and reset image:</label><br>
 <input type="range" min="5" max="100" id="grid-input" value="16">
+</div>
+<div class="button-container">
+<button id="reset">Reset Grid</button>
 </div>
 </div>
 <script src="script.js">
 </script>
+<footer>Made by John for the Odin Project</footer>
+
 </body>
 
 </html>

@@ -20,17 +20,24 @@ function createBlock(quantity) {
   }
 }
 
-container.addEventListener("click", clickTrue);
+document.addEventListener("mousedown", clickTrue);
 function clickTrue() {
-  if (colorOn == true) {
-      container.classList.remove("paintbrush");
-    container.classList.add("select-cursor");
-colorOn = false;
-} else if (colorOn == false) {
-  container.classList.remove("select-cursor");
-  container.classList.add("paintbrush");
 colorOn = true;
+container.classList.remove("select-cursor");
+container.classList.add("paintbrush");
 }
+
+document.addEventListener("mouseup", clickFalse);
+function clickFalse() {
+  colorOn = false;
+  container.classList.remove("paintbrush");
+  container.classList.add("select-cursor");
+}
+container.addEventListener("contextmenu", colorPalette, false);
+function colorPalette() {
+  preventDefault();
+  return false
+
 }
 
   var colorOn = false;
